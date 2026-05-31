@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Mohd Azam — Software Engineer</title>
+<meta name="description" content="Mohd Azam — Full Stack Software Engineer from Lucknow, India. Building high-performance web applications and scalable backend systems."/>
+<meta property="og:title" content="Mohd Azam — Software Engineer"/>
+<meta property="og:description" content="Full Stack Engineer · System Architect · Tech Lead"/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   RESET & VARIABLES
+   ============================================================ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0A1628;--navy2:#0D1E36;--navy3:#122444;--navy4:#1A3054;
+  --silver:#A8B8CC;--silver-light:#C8D6E5;--silver-bright:#E2EAF2;
+  --white:#F4F7FB;--accent:#7B9FBF;--accent2:#5B82A6;
+  --green:#4CAF89;--red:#E57373;
+  --line:rgba(168,184,204,0.15);--line2:rgba(168,184,204,0.25);
+}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--silver-bright);font-family:'Inter',sans-serif;font-size:15px;line-height:1.75;overflow-x:hidden}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--accent2)}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 5rem;background:rgba(10,22,40,0.95);backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line);transition:padding 0.3s}
+.nav-brand{display:flex;align-items:center;gap:0.75rem}
+.nav-monogram{width:34px;height:34px;background:var(--accent2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--white);letter-spacing:1px;flex-shrink:0}
+.nav-name{font-size:13px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver-light)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{color:var(--silver);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:color 0.25s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{background:transparent;border:0.5px solid var(--accent2);color:var(--silver-light);padding:0.5rem 1.25rem;font-family:'Inter',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.25s;text-decoration:none}
+.nav-cta:hover{background:var(--accent2);color:var(--white)}
+/* Mobile hamburger */
+.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-toggle span{width:22px;height:1.5px;background:var(--silver);transition:all 0.3s}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero{min-height:100vh;display:flex;align-items:center;padding:8rem 5rem 5rem;position:relative;overflow:hidden}
+.hero-bg-lines{position:absolute;inset:0;pointer-events:none}
+.hero-bg-lines::before{content:'';position:absolute;top:0;right:0;width:45%;height:100%;background:linear-gradient(135deg,transparent 40%,rgba(91,130,166,0.06) 100%);border-left:0.5px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;max-width:1160px;margin:0 auto;width:100%}
+.hero-eyebrow{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
+.hero-line{width:32px;height:1px;background:var(--accent);flex-shrink:0}
+.hero-sub{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);font-weight:500}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,5.5vw,4.8rem);font-weight:700;line-height:1.05;color:var(--white);margin-bottom:0.5rem}
+.hero-name span{color:var(--accent);font-style:italic}
+.hero-role{font-size:14px;color:var(--silver);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:1.75rem;font-weight:400}
+.hero-desc{color:var(--silver);max-width:440px;margin-bottom:2.5rem;font-size:14px;font-weight:300;line-height:1.8}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent2);color:var(--white);padding:0.85rem 2.25rem;border:none;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:background 0.3s;text-decoration:none;display:inline-block}
+.btn-primary:hover{background:#4A70A0}
+.btn-ghost{background:transparent;color:var(--silver-light);padding:0.85rem 2.25rem;border:0.5px solid var(--line2);font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;text-decoration:none;display:inline-block}
+.btn-ghost:hover{border-color:var(--accent);color:var(--white)}
+.hero-stats-row{display:flex;gap:2.5rem;margin-top:3rem;padding-top:2rem;border-top:0.5px solid var(--line);flex-wrap:wrap}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--white);line-height:1}
+.stat-l{font-size:10px;color:var(--silver);letter-spacing:2px;text-transform:uppercase;margin-top:0.3rem}
+.hero-card-col{display:flex;flex-direction:column;gap:1rem}
+.hero-card{background:var(--navy3);border:0.5px solid var(--line);padding:1.75rem;position:relative;overflow:hidden;transition:border-color 0.3s}
+.hero-card:hover{border-color:var(--line2)}
+.hero-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--accent2)}
+.hero-card-num{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--accent);font-weight:600;margin-bottom:0.25rem}
+.hero-card-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.35rem}
+.hero-card-sub{font-size:12px;color:var(--silver);font-weight:300}
+.availability{display:inline-flex;align-items:center;gap:0.5rem;padding:0.5rem 1rem;background:rgba(91,130,166,0.1);border:0.5px solid rgba(91,130,166,0.3);font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:1.5rem}
+.dot-green{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+/* ============================================================
+   SECTIONS SHARED
+   ============================================================ */
+section{padding:6.5rem 5rem}
+.section-inner{max-width:1160px;margin:0 auto}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:4rem;padding-bottom:2rem;border-bottom:0.5px solid var(--line)}
+.section-num{font-size:11px;color:var(--accent);letter-spacing:3px;font-weight:500;margin-bottom:0.5rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,3vw,2.8rem);font-weight:700;color:var(--white);line-height:1.15}
+.section-title em{font-style:italic;color:var(--accent)}
+.section-link{font-size:11px;color:var(--silver);letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.25s;white-space:nowrap}
+.section-link:hover{color:var(--accent)}
+.section-link::after{content:'→'}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+#about{background:var(--navy2)}
+.about-layout{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:start}
+.portrait-wrap{position:relative}
+.portrait-box{background:var(--navy4);border:0.5px solid var(--line);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.portrait-box img{width:100%;height:100%;object-fit:cover;object-position:top}
+.portrait-box .initials{font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--accent2)}
+.portrait-corner{position:absolute;width:48px;height:48px;border-color:var(--accent2);border-style:solid;z-index:2;pointer-events:none}
+.portrait-corner.tl{top:-8px;left:-8px;border-width:2px 0 0 2px}
+.portrait-corner.br{bottom:-8px;right:-8px;border-width:0 2px 2px 0}
+.about-meta{display:flex;gap:0.75rem;margin-top:1rem;flex-wrap:wrap}
+.meta-pill{font-size:10px;padding:0.35rem 0.85rem;border:0.5px solid var(--line2);color:var(--silver);letter-spacing:1px;text-transform:uppercase}
+.about-intro{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--silver-light);line-height:1.7;margin-bottom:1.5rem;font-style:italic}
+.about-body{font-size:13.5px;color:var(--silver);line-height:1.9;margin-bottom:2rem;font-weight:300}
+.about-values{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+.value-item{padding:1.25rem;border:0.5px solid var(--line);background:rgba(255,255,255,0.01);transition:border-color 0.3s}
+.value-item:hover{border-color:var(--line2)}
+.value-icon{font-size:1.2rem;margin-bottom:0.75rem;color:var(--accent)}
+.value-name{font-size:13px;font-weight:600;color:var(--white);margin-bottom:0.3rem}
+.value-desc{font-size:12px;color:var(--silver);font-weight:300;line-height:1.6}
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+#skills{background:var(--navy)}
+.skills-layout{display:grid;grid-template-columns:1fr 2fr;gap:5rem;align-items:start}
+.skills-intro{font-size:13.5px;color:var(--silver);line-height:1.9;font-weight:300;position:sticky;top:7rem}
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:0.5px solid var(--line)}
+.skill-cell{background:var(--navy);padding:2rem;transition:background 0.3s}
+.skill-cell:hover{background:var(--navy3)}
+.skill-cell-label{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;font-weight:500}
+.skill-bars{display:flex;flex-direction:column;gap:0.75rem}
+.skill-row{display:flex;flex-direction:column;gap:0.3rem}
+.skill-row-top{display:flex;justify-content:space-between}
+.skill-name{font-size:12px;color:var(--silver-light)}
+.skill-pct{font-size:11px;color:var(--accent);font-weight:500}
+.skill-bar{height:2px;background:var(--line);overflow:hidden}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));width:0;transition:width 1.2s ease}
+
+/* ============================================================
+   EXPERIENCE
+   ============================================================ */
+#experience{background:var(--navy2)}
+.exp-timeline{position:relative;padding-left:2rem}
+.exp-timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line)}
+.exp-item{position:relative;padding:0 0 3.5rem 2.5rem}
+.exp-item:last-child{padding-bottom:0}
+.exp-dot{position:absolute;left:-2rem;top:0.35rem;width:10px;height:10px;background:var(--navy2);border:1.5px solid var(--accent2);transform:translateX(calc(-50% + 0.5px))}
+.exp-dot.current{background:var(--accent2)}
+.exp-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:0.5rem;gap:2rem;flex-wrap:wrap}
+.exp-role{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--white)}
+.exp-period{font-size:11px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;white-space:nowrap;padding-top:0.35rem}
+.exp-company{font-size:13px;color:var(--accent);font-weight:500;margin-bottom:1rem}
+.exp-desc{font-size:13px;color:var(--silver);line-height:1.85;font-weight:300;margin-bottom:1rem}
+.exp-tags{display:flex;gap:0.5rem;flex-wrap:wrap}
+.exp-tag{font-size:10px;padding:0.25rem 0.65rem;border:0.5px solid var(--line2);color:var(--silver)}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+#projects{background:var(--navy)}
+.projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:0.5px solid var(--line)}
+.project-item{background:var(--navy);padding:2.5rem;display:flex;flex-direction:column;transition:background 0.3s;cursor:pointer}
+.project-item:hover{background:var(--navy3)}
+.project-item.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.project-num{font-family:'Cormorant Garamond',serif;font-size:3rem;color:rgba(91,130,166,0.15);font-weight:700;line-height:1;margin-bottom:1rem}
+.project-stack{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.project-stack-tag{font-size:10px;padding:0.2rem 0.6rem;background:rgba(91,130,166,0.12);color:var(--accent);text-transform:uppercase}
+.project-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--white);margin-bottom:0.6rem;line-height:1.25}
+.project-desc{font-size:13px;color:var(--silver);line-height:1.8;font-weight:300;flex:1}
+.project-footer{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem;padding-top:1.5rem;border-top:0.5px solid var(--line)}
+.project-link{font-size:11px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;font-weight:500;transition:color 0.25s}
+.project-link:hover{color:var(--white)}
+.project-arrow{color:var(--accent);transition:transform 0.25s}
+.project-item:hover .project-arrow{transform:translate(3px,-3px)}
+.featured-visual{background:var(--navy4);border:0.5px solid var(--line);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;font-size:4rem;color:var(--accent2)}
+
+/* ============================================================
+   BLOG
+   ============================================================ */
+#blog{background:var(--navy2)}
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:0.5px solid var(--line)}
+.blog-item{background:var(--navy2);padding:2rem;cursor:pointer;transition:background 0.3s;display:flex;flex-direction:column}
+.blog-item:hover{background:var(--navy4)}
+.blog-cat{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;font-weight:500}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);line-height:1.4;margin-bottom:0.75rem;font-weight:600}
+.blog-excerpt{font-size:12.5px;color:var(--silver);line-height:1.75;font-weight:300;flex:1}
+.blog-meta{display:flex;justify-content:space-between;margin-top:1.5rem;padding-top:1rem;border-top:0.5px solid var(--line)}
+.blog-date{font-size:11px;color:var(--silver)}
+.blog-read{font-size:11px;color:var(--accent);letter-spacing:1px;text-transform:uppercase}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact{background:var(--navy)}
+.contact-layout{display:grid;grid-template-columns:1fr 1.4fr;gap:5rem;align-items:start}
+.contact-tagline{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--white);line-height:1.4;margin-bottom:1.5rem;font-weight:600}
+.contact-body{font-size:13.5px;color:var(--silver);line-height:1.9;font-weight:300;margin-bottom:2.5rem}
+.contact-methods{display:flex;flex-direction:column}
+.contact-method{display:flex;align-items:center;gap:1.25rem;padding:1.1rem 0;border-bottom:0.5px solid var(--line);text-decoration:none;color:var(--silver-light);transition:color 0.25s;font-size:13px}
+.contact-method:first-child{border-top:0.5px solid var(--line)}
+.contact-method:hover{color:var(--white)}
+.cm-icon{color:var(--accent);width:18px;text-align:center;flex-shrink:0}
+.cm-label{font-size:10px;color:var(--silver);letter-spacing:1.5px;text-transform:uppercase;width:70px;flex-shrink:0}
+.contact-form{background:var(--navy3);border:0.5px solid var(--line);padding:2.5rem}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--white);margin-bottom:2rem;font-weight:600}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem}
+.form-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--silver);font-weight:500}
+.form-input,.form-textarea{background:var(--navy2);border:0.5px solid var(--line2);color:var(--white);padding:0.85rem 1rem;font-family:'Inter',sans-serif;font-size:13px;font-weight:300;outline:none;transition:border-color 0.3s;width:100%}
+.form-input:focus,.form-textarea:focus{border-color:var(--accent2)}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(168,184,204,0.35)}
+.form-textarea{resize:vertical;min-height:110px}
+.form-submit{width:100%;background:var(--accent2);color:var(--white);border:none;padding:1rem;font-family:'Inter',sans-serif;font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;margin-top:0.5rem}
+.form-submit:hover:not(:disabled){background:#4A70A0}
+.form-submit:disabled{opacity:0.7;cursor:not-allowed}
+#form-feedback{font-size:12px;margin-top:0.75rem;padding:0.75rem 1rem;border-left:3px solid;display:none}
+#form-feedback.show{display:block}
+#form-feedback.success{color:var(--green);border-color:var(--green);background:rgba(76,175,137,0.08)}
+#form-feedback.error{color:var(--red);border-color:var(--red);background:rgba(229,115,115,0.08)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{background:var(--navy2);padding:2rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--line);flex-wrap:wrap;gap:1rem}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--silver-light);letter-spacing:2px}
+.footer-copy{font-size:11px;color:var(--silver)}
+.footer-links{display:flex;gap:2rem}
+.footer-links a{font-size:11px;color:var(--silver);text-decoration:none;letter-spacing:1px;text-transform:uppercase;transition:color 0.25s}
+.footer-links a:hover{color:var(--accent)}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1024px){
+  nav{padding:1rem 2rem}
+  #hero,section{padding-left:2rem;padding-right:2rem}
+  footer{padding-left:2rem;padding-right:2rem}
+  .hero-grid{gap:3rem}
+  .about-layout,.skills-layout,.contact-layout{gap:3rem}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(10,22,40,0.98);flex-direction:column;padding:2rem 1.5rem;gap:1.5rem;border-bottom:0.5px solid var(--line)}
+  .nav-links.open{display:flex}
+  .nav-toggle{display:flex}
+  .nav-cta{display:none}
+  #hero{padding:7rem 1.5rem 3rem}
+  section{padding:4rem 1.5rem}
+  footer{padding:1.5rem;flex-direction:column;text-align:center}
+  .hero-grid,.about-layout,.skills-layout,.contact-layout{grid-template-columns:1fr;gap:2.5rem}
+  .hero-bg-lines::before{display:none}
+  .projects-grid,.blog-grid{grid-template-columns:1fr}
+  .project-item.featured{grid-column:auto;grid-template-columns:1fr}
+  .featured-visual{display:none}
+  .skills-layout{grid-template-columns:1fr}
+  .skills-intro{position:static}
+  .skills-grid{grid-template-columns:1fr}
+  .about-values{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .section-header{flex-direction:column;align-items:flex-start;gap:1rem}
+  .hero-stats-row{gap:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <div class="nav-monogram">MA</div>
+    <span class="nav-name">Mohd Azam</span>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#blog">Writing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:1rem">
+    <a href="#contact" class="nav-cta">Hire Me</a>
+    <div class="nav-toggle" id="navToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-grid">
+    <div>
+      <div class="availability"><span class="dot-green"></span> Open to opportunities</div>
+      <div class="hero-eyebrow"><div class="hero-line"></div><span class="hero-sub">Software Engineer</span></div>
+      <h1 class="hero-name">Mohd <span>Azam</span></h1>
+      <p class="hero-role">Full Stack Engineer &nbsp;·&nbsp; System Architect &nbsp;·&nbsp; Tech Lead</p>
+      <p class="hero-desc">I design and build high-performance software systems — from clean user interfaces to resilient backend infrastructure — with precision and purpose.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Let's Talk</a>
+      </div>
+      <div class="hero-stats-row">
+        <div class="stat"><div class="stat-n">3+</div><div class="stat-l">Years Exp.</div></div>
+        <div class="stat"><div class="stat-n">30+</div><div class="stat-l">Projects</div></div>
+        <div class="stat"><div class="stat-n">12+</div><div class="stat-l">Clients</div></div>
+        <div class="stat"><div class="stat-n">99%</div><div class="stat-l">Uptime SLA</div></div>
+      </div>
+    </div>
+    <div class="hero-card-col">
+      <div class="hero-card"><div class="hero-card-num">01</div><div class="hero-card-title">Full Stack Engineering</div><div class="hero-card-sub">React, Node.js, Python, Go — end-to-end product delivery</div></div>
+      <div class="hero-card"><div class="hero-card-num">02</div><div class="hero-card-title">Cloud & Infrastructure</div><div class="hero-card-sub">AWS, Kubernetes, Terraform — scalable, production-grade systems</div></div>
+      <div class="hero-card"><div class="hero-card-num">03</div><div class="hero-card-title">AI & Data Engineering</div><div class="hero-card-sub">LLM integrations, data pipelines, ML-powered products</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div><div class="section-num">01 — About</div><h2 class="section-title">Engineering with <em>intention</em></h2></div>
+      <a href="#contact" class="section-link">Work with me</a>
+    </div>
+    <div class="about-layout reveal">
+      <div class="portrait-wrap">
+        <div class="portrait-box">
+          <!-- TO ADD YOUR PHOTO: replace the div below with <img src="your-photo.jpg" alt="Mohd Azam"> -->
+          <img src="photo.jpg" alt="Mohd Azam">
+          <div class="portrait-corner tl"></div>
+          <div class="portrait-corner br"></div>
+        </div>
+        <div class="about-meta">
+          <span class="meta-pill">Lucknow, IN</span>
+          <span class="meta-pill">UTC+5:30</span>
+          <span class="meta-pill">English · Hindi · Urdu</span>
+        </div>
+      </div>
+      <div>
+        <p class="about-intro">"Good code is not written — it's engineered through clarity of thought and relentless refinement."</p>
+        <p class="about-body">I'm Mohd Azam, a software engineer with a strong foundation in full-stack development, system design, and developer tooling. My work spans the full stack — from pixel-perfect UIs to distributed backend systems — with a focus on performance, reliability, and developer experience.<br><br>I've led engineering teams, shipped features used by thousands daily, and contributed to projects adopted across the industry. I bring both technical depth and product intuition to every engagement.</p>
+        <div class="about-values">
+          <div class="value-item"><div class="value-icon">⬡</div><div class="value-name">Architecture First</div><div class="value-desc">Design decisions made for longevity, not just the next sprint.</div></div>
+          <div class="value-item"><div class="value-icon">◈</div><div class="value-name">Ownership Mindset</div><div class="value-desc">I treat every system as my own — zero corners cut.</div></div>
+          <div class="value-item"><div class="value-icon">◉</div><div class="value-name">Clear Communication</div><div class="value-desc">Technical complexity, explained simply to any audience.</div></div>
+          <div class="value-item"><div class="value-icon">✦</div><div class="value-name">Continuous Craft</div><div class="value-desc">Always learning, always refining, always at the frontier.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SKILLS
+     ============================================================ -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div><div class="section-num">02 — Skills</div><h2 class="section-title">The <em>technical</em> toolkit</h2></div>
+    </div>
+    <div class="skills-layout reveal">
+      <div class="skills-intro">
+        <p style="margin-bottom:1.5rem">A curated set of tools and technologies I use to build robust, production-grade software — chosen for capability, not trend.</p>
+        <p style="font-size:12px;color:var(--accent);letter-spacing:1px;text-transform:uppercase;font-weight:500">Proficiency levels shown</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-cell">
+          <div class="skill-cell-label">Languages</div>
+          <div class="skill-bars">
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">TypeScript</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Python</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Go</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Java</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-w="70"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-cell-label">Frontend</div>
+          <div class="skill-bars">
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">React / Next.js</span><span class="skill-pct">95%</span></div><div class="skill-bar"><div class="skill-fill" data-w="95"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">CSS / Tailwind</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">GraphQL</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">WebSockets</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-cell-label">Backend</div>
+          <div class="skill-bars">
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Node.js / FastAPI</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">PostgreSQL</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Redis</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">REST / gRPC</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+          </div>
+        </div>
+        <div class="skill-cell">
+          <div class="skill-cell-label">Cloud & DevOps</div>
+          <div class="skill-bars">
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">AWS</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Kubernetes</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Terraform</span><span class="skill-pct">78%</span></div><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div></div>
+            <div class="skill-row"><div class="skill-row-top"><span class="skill-name">Docker / CI/CD</span><span class="skill-pct">92%</span></div><div class="skill-bar"><div class="skill-fill" data-w="92"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCE
+     ============================================================ -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div><div class="section-num">03 — Experience</div><h2 class="section-title">Where I've <em>made impact</em></h2></div>
+      <a href="mohd azam cv1.pdf" class="section-link">Download CV</a>
+    </div>
+    <div class="exp-timeline reveal">
+      <div class="exp-item">
+        <div class="exp-dot current"></div>
+        <div class="exp-header"><div class="exp-role">Senior Software Engineer</div><div class="exp-period">2026 — Present</div></div>
+        <div class="exp-company">Acme Technologies · Full-time</div>
+        <div class="exp-desc">Led architecture and delivery of a real-time data pipeline processing 10M+ events/day. Drove platform reliability from 97% to 99.9% uptime. Mentored 4 engineers and reduced deployment cycle time by 40%.</div>
+        <div class="exp-tags"><span class="exp-tag">Go</span><span class="exp-tag">Kubernetes</span><span class="exp-tag">Kafka</span><span class="exp-tag">Terraform</span><span class="exp-tag">Postgres</span></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-header"><div class="exp-role">Software Engineer</div><div class="exp-period">2024 — 2025</div></div>
+        <div class="exp-company">BuildCo Solutions · Full-time</div>
+        <div class="exp-desc">Built the core product dashboard serving 5,000+ daily active users. Introduced TypeScript across the frontend codebase and improved test coverage from 30% to 85%.</div>
+        <div class="exp-tags"><span class="exp-tag">React</span><span class="exp-tag">TypeScript</span><span class="exp-tag">Node.js</span><span class="exp-tag">AWS</span></div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-header"><div class="exp-role">Junior Developer</div><div class="exp-period">2023 — 2024</div></div>
+        <div class="exp-company">StartupXYZ · Full-time</div>
+        <div class="exp-desc">Developed full-stack features across React frontend and Node.js backend. Owned AWS infrastructure setup and delivered the v2.0 product launch on schedule with zero critical bugs.</div>
+        <div class="exp-tags"><span class="exp-tag">React</span><span class="exp-tag">Node</span><span class="exp-tag">MongoDB</span><span class="exp-tag">AWS EC2</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROJECTS
+     ============================================================ -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div><div class="section-num">04 — Projects</div><h2 class="section-title">Selected <em>works</em></h2></div>
+      <a href="#" class="section-link">All projects</a>
+    </div>
+    <div class="projects-grid reveal">
+      <div class="project-item featured">
+        <div>
+          <div class="project-num">01</div>
+          <div class="project-stack"><span class="project-stack-tag">HTML</span><span class="project-stack-tag">CSS</span><span class="project-stack-tag">JAWASCRIPT</span><span class="project-stack-tag">GitHub PAGES</span></div>
+          <div class="project-name">Personal Portfolio Website</div>
+          <div class="project-desc">A fully responsive personal portfolio website built with pure HTML, CSS and JavaScript — featuring smooth scroll animations, skill bars, project showcase, blog section, and a working contact form. Deployed live on GitHub Pages.</div>
+          <div class="project-footer"><a href="https://azam-tech.vercel.app/ " class="project-link">Live Demo</a><span class="project-arrow">↗</span></div>
+        </div>
+        <div class="featured-visual">
+          <img src="project.png" alt="Portfolio Screenshot" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="project-item">
+        <div class="project-num">02</div>
+        <div class="project-stack"><span class="project-stack-tag">HTML</span><span class="project-stack-tag">CSS</span><span class="project-stack-tag">JAWASCRIPT</span><span class="project-stack-tag">wEATHER API</span></div>
+        <div class="project-name">Weather Dashboard</div>
+        <div class="project-desc">A fully responsive weather dashboard built with HTML, CSS and JavaScript — featuring real-time weather data via API, city search, temperature, humidity, wind speed display, and a clean modern UI.</div>
+        <div class="project-footer"><a href="https://azam-weather.vercel.app/" class="project-link">Live Demo</a><span class="project-arrow">↗</span></div>
+      </div>
+      <div class="featured-visual">
+          <img src="Weather Dashboard.png" alt="Weather Dashboard Screenshot" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+      <div class="project-item">
+        <div class="project-num">03</div>
+        <div class="project-stack"><span class="project-stack-tag">HTNL</span><span class="project-stack-tag">CSS</span><span class="project-stack-tag">JAVASCRIPT</span></div>
+        <div class="project-name">Oceancraft</div>
+        <div class="project-desc">A fully responsive ocean-themed web project built with HTML, CSS and JavaScript — featuring smooth animations, interactive UI elements, and an immersive design that brings the beauty of the ocean to life on screen.</div>
+        <div class="project-footer"><a href="https://azam-oceancraft.vercel.app/" class="project-link">Live Demo</a><span class="project-arrow">↗</span></div>
+      </div>
+      <div class="featured-visual">
+          <img src="oceancraft.png" alt="Weather Dashboard Screenshot" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BLOG
+     ============================================================ -->
+<section id="blog">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div><div class="section-num">05 — Writing</div><h2 class="section-title">Thoughts on the <em>craft</em></h2></div>
+      <a href="#" class="section-link">All articles</a>
+    </div>
+    <div class="blog-grid reveal">
+      <div class="blog-item">
+        <div class="blog-cat">Engineering</div>
+        <div class="blog-title">Designing APIs that developers actually want to use</div>
+        <div class="blog-excerpt">A deep look at the principles behind excellent developer experience — naming, versioning, error design, and documentation that doesn't lie.</div>
+        <div class="blog-meta"><span class="blog-date">May 2026</span><span class="blog-read">8 min read</span></div>
+      </div>
+      <div class="blog-item">
+        <div class="blog-cat">Systems</div>
+        <div class="blog-title">When distributed systems go wrong — lessons from production</div>
+        <div class="blog-excerpt">Real incidents, candid postmortems, and the engineering culture shifts that help teams recover faster and build more resilient systems.</div>
+        <div class="blog-meta"><span class="blog-date">Mar 2026</span><span class="blog-read">12 min read</span></div>
+      </div>
+      <div class="blog-item">
+        <div class="blog-cat">AI & LLMs</div>
+        <div class="blog-title">Building with LLMs in 2026 — what's actually changed</div>
+        <div class="blog-excerpt">How the tooling, patterns, and production expectations around AI-powered software have matured — and what still catches teams off-guard.</div>
+        <div class="blog-meta"><span class="blog-date">Jan 2026</span><span class="blog-read">10 min read</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <div><div class="section-num">06 — Contact</div><h2 class="section-title">Let's build something <em>great</em></h2></div>
+    </div>
+    <div class="contact-layout reveal">
+      <div>
+        <p class="contact-tagline">Have a project in mind or want to explore a collaboration?</p>
+        <p class="contact-body">I'm currently open to senior engineering roles, technical consulting, and open-source collaborations. I respond to every message within 24 hours.</p>
+        <div class="contact-methods">
+          <a href="mailto:aa3981863@gmail.com" class="contact-method"><span class="cm-icon">✉</span><span class="cm-label">Email</span>
+          <a href="https://www.linkedin.com/in/mohd-azam-916256269/recent-activity/all/" target="_blank" class="contact-method"><span class="cm-icon">in</span><span class="cm-label">LinkedIn</span>
+          <a href="https://github.com/azam9900" target="_blank" class="contact-method"><span class="cm-icon">⌥</span><span class="cm-label">GitHub</span>
+          <a href="https://x.com/azam_ansari67" target="_blank" class="contact-method"><span class="cm-icon">✦</span><span class="cm-label">Twitter/X</span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-title">Send Mohd Azam a message</div>
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">Name</label><input id="f-name" class="form-input" type="text" placeholder="Your name"/></div>
+          <div class="form-group"><label class="form-label">Email</label><input id="f-email" class="form-input" type="email" placeholder="you@example.com"/></div>
+        </div>
+        <div class="form-group"><label class="form-label">Subject</label><input id="f-subject" class="form-input" type="text" placeholder="Project inquiry, collaboration..."/></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea id="f-message" class="form-textarea" placeholder="Tell me about your project or idea..."></textarea></div>
+        <button class="form-submit" id="formBtn" onclick="sendMessage()">Send Message →</button>
+        <div id="form-feedback"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <span class="footer-brand">Mohd Azam</span>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#blog">Writing</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <span class="footer-copy">© 2026 Mohd Azam — All rights reserved</span>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT — All-in-one, no external dependencies
+     ============================================================ -->
+<script>
+/* ── Mobile Menu ────────────────────────────────────────────── */
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('nav')) {
+    document.getElementById('navLinks').classList.remove('open');
+  }
+});
+
+/* ── Scroll Reveal ──────────────────────────────────────────── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }});
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(r => revealObs.observe(r));
+
+/* ── Skill Bars ─────────────────────────────────────────────── */
+const barObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.style.width = e.target.dataset.w + '%'; barObs.unobserve(e.target); }});
+}, { threshold: 0.3 });
+document.querySelectorAll('.skill-fill').forEach(f => barObs.observe(f));
+
+/* ── Nav Active Highlight ───────────────────────────────────── */
+const navObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      document.querySelectorAll('.nav-links a').forEach(l => {
+        l.classList.remove('active');
+        if (l.getAttribute('href') === '#' + e.target.id) l.classList.add('active');
+      });
+    }
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('section[id]').forEach(s => navObs.observe(s));
+
+/* ── Smooth Scroll ──────────────────────────────────────────── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); document.getElementById('navLinks').classList.remove('open'); }
+  });
+});
+
+/* ── Contact Form — Web3Forms (FREE, no signup, works instantly) ──
+   Web3Forms delivers email to aa3981863@gmail.com using their
+   free public API key. No account needed on your end.
+   ────────────────────────────────────────────────────────────── */
+async function sendMessage() {
+  const name    = document.getElementById('f-name').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const subject = document.getElementById('f-subject').value.trim();
+  const message = document.getElementById('f-message').value.trim();
+  const btn     = document.getElementById('formBtn');
+  const fb      = document.getElementById('form-feedback');
+
+  // Validation
+  if (!name || !email || !subject || !message) {
+    return showFeedback('Please fill in all fields.', 'error');
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return showFeedback('Please enter a valid email address.', 'error');
+  }
+  if (message.length < 10) {
+    return showFeedback('Message must be at least 10 characters.', 'error');
+  }
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  try {
+    /* -------------------------------------------------------
+       Web3Forms — completely free, works without any setup.
+       The access_key below is tied to aa3981863@gmail.com.
+       Get your own free key at: https://web3forms.com
+       ------------------------------------------------------- */
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: '309c4820-9008-4f66-b67c-90688417195b', // 👈 Sirf yeh ek cheez replace karni hai
+        name, email, subject, message,
+        from_name: 'Mohd Azam Portfolio',
+      }),
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#4CAF89';
+      showFeedback('Message received! Mohd Azam will reply within 24 hours. ✓', 'success');
+      document.getElementById('f-name').value = '';
+      document.getElementById('f-email').value = '';
+      document.getElementById('f-subject').value = '';
+      document.getElementById('f-message').value = '';
+      setTimeout(() => { btn.textContent = 'Send Message →'; btn.style.background = ''; btn.disabled = false; }, 4000);
+    } else {
+      throw new Error(data.message || 'Submission failed');
+    }
+
+  } catch (err) {
+    btn.textContent = 'Send Message →';
+    btn.disabled = false;
+    if (err.message.includes('YOUR_WEB3FORMS_KEY')) {
+      showFeedback('Almost ready! Get your free key at web3forms.com and paste it in the HTML.', 'error');
+    } else {
+      showFeedback('Could not send. Please email directly: aa3981863@gmail.com', 'error');
+    }
+  }
+}
+
+function showFeedback(msg, type) {
+  const fb = document.getElementById('form-feedback');
+  fb.textContent = msg;
+  fb.className = 'show ' + type;
+  if (type === 'error') setTimeout(() => { fb.className = ''; fb.textContent = ''; }, 5000);
+}
+</script>
+</body>
+</html>
